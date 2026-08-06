@@ -106,8 +106,8 @@ Outside of coding, I enjoy exploring new technologies, improving my skills, and 
 						<div class="inner">
 							<h2>My projects</h2>
 							<p>        Here you can explore a selection of projects I have worked on throughout my development journey,
-    ranging from personal applications to enterprise solutions. Each project reflects my experience
-    in software development, problem-solving, learning new technologies, and building reliable solutions.						
+							ranging from personal applications to enterprise solutions. Each project reflects my experience
+							in software development, problem-solving, learning new technologies, and building reliable solutions.						
 								<a href="#"
 								   id="autoScrollButton"
 								   class="button icon solid fa-arrow-down"
@@ -197,10 +197,10 @@ Outside of coding, I enjoy exploring new technologies, improving my skills, and 
 										<h2>Restaurant Carleone</h2>
 
 										<p>
-									A website for the Italian restaurant Carleone, developed using PHP. 
-									The website includes key sections such as "About Us", "Menu", "Order Food", 
-									"Frequently Asked Questions", and "Contact". It also implements user login 
-									functionality with session management.
+										A website for the Italian restaurant Carleone, developed using PHP. 
+										The website includes key sections such as "About Us", "Menu", "Order Food", 
+										"Frequently Asked Questions", and "Contact". It also implements user login 
+										functionality with session management.
 										</p>
 									</div>
 								</div>
@@ -219,9 +219,9 @@ Outside of coding, I enjoy exploring new technologies, improving my skills, and 
 										<h2>Fitness system</h2>
 
 										<p>
-						A fitness management web application developed using the Vaadin framework. 
-The system allows users to manage clients, record workouts, manage gyms and 
-schedules, handle membership subscriptions, and view fitness statistics.
+										A fitness management web application developed using the Vaadin framework. 
+										The system allows users to manage clients, record workouts, manage gyms and 
+										schedules, handle membership subscriptions, and view fitness statistics.
 										</p>
 									</div>
 								</div>
@@ -241,7 +241,7 @@ schedules, handle membership subscriptions, and view fitness statistics.
 
 										<p>
 											An online survey application designed for creating and collecting responses 
-from users through a simple four-question survey format.
+												from users through a simple four-question survey format.
 										</p>
 									</div>
 								</div>
@@ -442,7 +442,6 @@ from users through a simple four-question survey format.
 							<p>Interested in collaborating or have an idea you'd like to discuss? Feel free to send me an email. I'd be happy to connect, exchange ideas, and explore how we can create something great together.</p>
 							<div class="split style1">
 								<section>
-									<!--<form method="post" action="#"> -->
 									<form id="contactForm" method="post">
 										<div class="fields">
 											<div class="field half">
@@ -459,7 +458,6 @@ from users through a simple four-question survey format.
 											</div>
 										</div>
 										<ul class="actions">
-											<!--<li><a href="" class="button submit">Send Message</a></li> -->
 											 <li><button type="submit" class="button">Send Message</button>
 										</ul>
 									</form>
@@ -467,25 +465,8 @@ from users through a simple four-question survey format.
 								<section>
 									<ul class="contact">
 										<li>
-											<h3>Address</h3>
-											<span>Lopata 14 E<br />
-											3000 Celje<br />
-											Slovenija</span>
-										</li>
-										<li>
-											<h3>Email</h3>
-											<a href="#">jernejplavcak92@gmail.com</a>
-										</li>
-										<li>
-											<h3>Phone</h3>
-											<span>(+386) 041 240 395</span>
-										</li>
-										<li>
 											<h3>Social</h3>
 											<ul class="icons">
-												<!--<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-												<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-												<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li> -->
 												<li>
 													<a href="https://www.linkedin.com/in/jernej-plavcak-81a931125/" 
 													   class="icon brands fa-linkedin-in"
@@ -506,13 +487,14 @@ from users through a simple four-question survey format.
 			</div>
 
 		<!-- Footer -->
-			<footer id="footer" class="wrapper style1-alt">
-				<div class="inner">
-					<ul class="menu">
-						<li>&copy; All rights reserved.</li><li>Design: <a href="#">JPlavcak</a></li>
-					</ul>
-				</div>
-			</footer>
+		<footer id="footer" class="wrapper style1-alt">
+			<div class="inner">
+				<ul class="menu">
+					<li>&copy; <span id="currentYear"></span> All rights reserved.</li>
+					<li>Design: <a href="#">JPlavcak</a></li>
+				</ul>
+			</div>
+		</footer>
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
@@ -522,98 +504,7 @@ from users through a simple four-question survey format.
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-			<script>
-			document.getElementById("contactForm").addEventListener("submit", function(event) {
-				event.preventDefault();
-				
-				  const form = this;
-
-				// Check if all fields are valid
-				if (!form.checkValidity()) {
-					form.reportValidity();
-					return;
-				}
-
-				const name = document.getElementById("name").value;
-				const email = document.getElementById("email").value;
-				const message = document.getElementById("message").value;
-
-				const subject = encodeURIComponent("Portfolio contact from " + name);
-
-				const body = encodeURIComponent(
-					"Name: " + name +
-					"\nEmail: " + email +
-					"\n\nMessage:\n" + message
-				);
-
-				window.location.href =
-					"mailto:jernejplavcak92@gmail.com?subject=" +
-					subject +
-					"&body=" +
-					body;
-			});
-			
-			
-			let scrollInterval = null;
-
-			const scrollButton = document.getElementById("autoScrollButton");
-			const stopSection = document.getElementById("four");
-
-			function startAutoScroll(event) {
-				event.preventDefault();
-
-				// Prevent multiple intervals
-				if (scrollInterval !== null) {
-					return;
-				}
-
-				// Calculate target position when scrolling starts
-				const targetY = stopSection.getBoundingClientRect().top + window.pageYOffset;
-
-				// Already at or below the target
-				if (window.pageYOffset >= targetY) {
-					return;
-				}
-
-				scrollInterval = setInterval(function () {
-
-					const nextY = window.pageYOffset + 2;
-
-					// Stop exactly at the section
-					if (nextY >= targetY) {
-						window.scrollTo({
-							top: targetY,
-							behavior: "auto"
-						});
-
-						stopAutoScroll();
-						return;
-					}
-
-					window.scrollTo({
-						top: nextY,
-						behavior: "auto"
-					});
-
-				}, 20);
-			}
-
-			function stopAutoScroll() {
-				if (scrollInterval !== null) {
-					clearInterval(scrollInterval);
-					scrollInterval = null;
-				}
-			}
-
-			// Start scrolling
-			scrollButton.addEventListener("click", startAutoScroll);
-
-			// Stop immediately when the user interacts
-			["mousemove", "mousedown", "wheel", "touchstart", "keydown"].forEach(event =>
-				document.addEventListener(event, stopAutoScroll, { passive: true })
-			);
-			
-			</script>
+			<script src="assets/js/additional.js"></script>
 
 	</body>
 </html>
