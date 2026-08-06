@@ -30,14 +30,24 @@
 
 /* Sidebar */
 
-	#sidebar > .inner {
-		opacity: 1 !important;
-	}
+#sidebar > .inner {
+	opacity: 1 !important;
+}
 
-	#sidebar nav > ul > li {
-		-moz-transform: none !important;
-		-webkit-transform: none !important;
-		-ms-transform: none !important;
-		transform: none !important;
-		opacity: 1 !important;
-	}
+#sidebar nav > ul > li {
+	-moz-transform: none !important;
+	-webkit-transform: none !important;
+	-ms-transform: none !important;
+	transform: none !important;
+	opacity: 1 !important;
+}
+
+.developer-title {
+    display: flex !important;
+    align-items: center;
+    gap: 10px;
+}
+
+.developer-title .icon {
+    font-size: 0.8em;
+}

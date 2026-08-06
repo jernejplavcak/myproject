@@ -35,42 +35,34 @@ const scrollButton = document.getElementById("autoScrollButton");
 const stopSection = document.getElementById("four");
 
 function startAutoScroll(event) {
-	event.preventDefault();
+    event.preventDefault();
 
-	// Prevent multiple intervals
-	if (scrollInterval !== null) {
-		return;
-	}
+    if (scrollInterval !== null) {
+        return;
+    }
 
-	// Calculate target position when scrolling starts
-	const targetY = stopSection.getBoundingClientRect().top + window.pageYOffset;
+    //const targetY = stopSection.offsetTop;
+	const targetY = stopSection.offsetTop - 20;
 
-	// Already at or below the target
-	if (window.pageYOffset >= targetY) {
-		return;
-	}
+    scrollInterval = setInterval(function () {
 
-	scrollInterval = setInterval(function () {
-
-		const nextY = window.pageYOffset + 2;
-
-		// Stop exactly at the section
+       // const nextY = window.pageYOffset + 2;
+		const nextY = window.pageYOffset + 5;
+        
 		if (nextY >= targetY) {
-			window.scrollTo({
-				top: targetY,
-				behavior: "auto"
-			});
 
-			stopAutoScroll();
-			return;
-		}
+            window.scrollTo({
+                top: targetY,
+                behavior: "smooth"
+            });
 
-		window.scrollTo({
-			top: nextY,
-			behavior: "auto"
-		});
+            stopAutoScroll();
+            return;
+        }
 
-	}, 20);
+        window.scrollTo(0, nextY);
+
+    }, 20);
 }
 
 function stopAutoScroll() {
@@ -86,7 +78,7 @@ scrollButton.addEventListener("click", startAutoScroll);
 // Stop immediately when the user interacts
 ["mousemove", "mousedown", "wheel", "touchstart", "keydown"].forEach(event =>
 	document.addEventListener(event, stopAutoScroll, { passive: true })
-);
+); 
 
 
 //Get current year
@@ -96,3 +88,43 @@ function getCurrentYear() {
 
 //assign the current year
 document.getElementById("currentYear").textContent = getCurrentYear();
+
+
+// Floating button visibility
+
+const projectSection = document.getElementById("three");
+const autoScrollButton = document.getElementById("autoScrollButton");
+
+
+
+function updateProjectButtonVisibility() {
+
+    const projectRect = projectSection.getBoundingClientRect();
+    const contactSection = document.getElementById("four");
+    const contactRect = contactSection.getBoundingClientRect();
+
+    const windowHeight = window.innerHeight;
+
+    // Section three is visible
+    const projectVisible =
+        projectRect.top < windowHeight &&
+        projectRect.bottom > 0;
+
+    // Section four is visible
+    const contactVisible =
+        contactRect.top < windowHeight &&
+        contactRect.bottom > 0;
+
+
+    if (projectVisible && !contactVisible) {
+        autoScrollButton.style.display = "inline-flex";
+    } else {
+        autoScrollButton.style.display = "none";
+    }
+}
+
+
+window.addEventListener("scroll", updateProjectButtonVisibility);
+window.addEventListener("resize", updateProjectButtonVisibility);
+
+updateProjectButtonVisibility();
