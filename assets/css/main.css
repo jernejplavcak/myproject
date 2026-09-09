@@ -3952,17 +3952,18 @@ input, select, textarea {
 	@media screen and (max-width: 736px) {
 
 		#mobileMenuToggle {
+			align-items: center;
 			background: #312450;
 			border: solid 1px rgba(255, 255, 255, 0.15);
 			border-radius: 0.25em;
 			color: #ffffff;
 			cursor: pointer;
-			display: block;
+			display: flex;
 			font-size: 1.5em;
 			height: auto;
+			justify-content: center;
 			letter-spacing: normal;
-			line-height: 1;
-			padding: 0.4em 0.6em;
+			padding: 0.4em;
 			position: fixed;
 			right: 15px;
 			text-transform: none;
