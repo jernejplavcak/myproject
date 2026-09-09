@@ -3937,6 +3937,17 @@ input, select, textarea {
     top: 50%;
     transform: translateY(-50%);
     z-index: 9999;
+    width: calc(4.75em + 2px);
+    height: calc(4.75em + 2px);
+    padding: 0;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#autoScrollButton.icon:before {
+    margin-right: 0;
 }
 
 /* Mobile Menu */
