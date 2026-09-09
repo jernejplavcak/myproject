@@ -128,3 +128,32 @@ window.addEventListener("scroll", updateProjectButtonVisibility);
 window.addEventListener("resize", updateProjectButtonVisibility);
 
 updateProjectButtonVisibility();
+
+
+// Mobile Menu
+
+var mobileMenuToggle = document.getElementById("mobileMenuToggle");
+var mobileMenu = document.getElementById("mobileMenu");
+var mobileMenuClose = document.getElementById("mobileMenuClose");
+
+if (mobileMenuToggle && mobileMenu && mobileMenuClose) {
+
+    mobileMenuToggle.addEventListener("click", function () {
+        mobileMenu.classList.add("active");
+        mobileMenuToggle.style.display = "none";
+    });
+
+    function closeMobileMenu() {
+        mobileMenu.classList.remove("active");
+        mobileMenuToggle.style.display = "";
+    }
+
+    mobileMenuClose.addEventListener("click", closeMobileMenu);
+
+    var mobileMenuLinks = mobileMenu.querySelectorAll("nav a");
+
+    for (var i = 0; i < mobileMenuLinks.length; i++) {
+        mobileMenuLinks[i].addEventListener("click", closeMobileMenu);
+    }
+
+}
