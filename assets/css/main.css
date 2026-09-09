@@ -3155,6 +3155,35 @@ input, select, textarea {
 
 		}
 
+/* Profile (Who am i) */
+
+	#one > section > .content {
+		width: auto;
+		flex-direction: row;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		gap: clamp(16px, 2vw, 24px);
+	}
+
+		#one > section > .content > .inner {
+			flex: 1 1 22em;
+		}
+
+	#one .profile-image {
+		margin: 0;
+		border-bottom: none;
+		opacity: 1;
+		transform: translateX(0);
+		transition: opacity 1s ease, transform 1s ease;
+	}
+
+	body.is-preload #one > section > .content > .profile-image,
+	#one > section.inactive > .content > .profile-image {
+		opacity: 0;
+		transform: translateX(-1em);
+	}
+
 /* Table */
 
 	.table-wrapper {
