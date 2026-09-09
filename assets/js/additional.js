@@ -141,6 +141,7 @@ if (mobileMenuToggle && mobileMenu && mobileMenuClose) {
     mobileMenuToggle.addEventListener("click", function () {
         mobileMenu.classList.add("active");
         mobileMenuToggle.style.display = "none";
+        autoScrollButton.style.display = "none";
     });
 
     function closeMobileMenu() {
