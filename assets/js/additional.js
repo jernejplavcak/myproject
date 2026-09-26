@@ -32,7 +32,7 @@ document.getElementById("contactForm").addEventListener("submit", function(event
 let scrollInterval = null;
 
 const scrollButton = document.getElementById("autoScrollButton");
-const stopSection = document.getElementById("four");
+const stopSection = document.getElementById("ai");
 
 function startAutoScroll(event) {
     event.preventDefault();
@@ -100,8 +100,8 @@ const autoScrollButton = document.getElementById("autoScrollButton");
 function updateProjectButtonVisibility() {
 
     const projectRect = projectSection.getBoundingClientRect();
-    const contactSection = document.getElementById("four");
-    const contactRect = contactSection.getBoundingClientRect();
+    const aiSection = document.getElementById("ai");
+    const aiRect = aiSection.getBoundingClientRect();
 
     const windowHeight = window.innerHeight;
 
@@ -110,13 +110,13 @@ function updateProjectButtonVisibility() {
         projectRect.top < windowHeight &&
         projectRect.bottom > 0;
 
-    // Section four is visible
-    const contactVisible =
-        contactRect.top < windowHeight &&
-        contactRect.bottom > 0;
+    // AI section is visible
+    const aiVisible =
+        aiRect.top < windowHeight &&
+        aiRect.bottom > 0;
 
 
-    if (projectVisible && !contactVisible) {
+    if (projectVisible && !aiVisible) {
         autoScrollButton.style.display = "inline-flex";
     } else {
         autoScrollButton.style.display = "none";
